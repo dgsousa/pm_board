@@ -2,7 +2,7 @@ const path = require('path');
 
 
 const config = {
-  entry: './src/app.jsx',
+  entry: './src/Index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -11,7 +11,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: '/node_modules/',
         loaders: ['babel-loader', 'eslint-loader'],
       },

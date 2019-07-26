@@ -1,0 +1,9 @@
+add data persistence / firebase / server logic
+
+
+
+
+react/redux
+- clear input on submit
+- segregate functionality - thunks, actions, reducers,
+- make combineReducer thing
