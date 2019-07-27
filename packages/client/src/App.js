@@ -2,17 +2,19 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import Todo from './Todo';
 import { addTodo, updateCurrentTodo } from './actionCreators';
 
-function mapStateToProps({ todos }) {
+function mapStateToProps({ todos, currentTodo }) {
   return {
+    currentTodo,
     todos,
   };
 }
 
 export default connect(mapStateToProps)(App);
 
-function App({ dispatch, todos }) {
+function App({ dispatch, todos, currentTodo }) {
   const handleAddTodo = () => {
     dispatch(addTodo());
   };
@@ -20,12 +22,14 @@ function App({ dispatch, todos }) {
   const handleUpdateTodo = (e) => {
     dispatch(updateCurrentTodo(e.target.value));
   };
+
   return (
     <Fragment>
       <div>make a Todo Item!</div>
       <input
         type="text"
         onChange={handleUpdateTodo}
+        value={currentTodo}
       />
       <button
         type="button"
@@ -34,8 +38,12 @@ function App({ dispatch, todos }) {
         { 'Click Here' }
       </button>
       {
-        todos.map(todo => (
-          <div key={todo.id}>{todo.text}</div>
+        todos.map((todo, index) => (
+          <Todo
+            key={todo.id}
+            text={todo.text}
+            index={index}
+          />
         ))
       }
     </Fragment>
@@ -47,4 +55,5 @@ App.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
+  currentTodo: PropTypes.string.isRequired,
 };

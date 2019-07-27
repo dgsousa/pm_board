@@ -1,39 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import App from './App';
+import { reducer, initialState } from './reducer';
 
-const initialState = {
-  currentTodo: '',
-  todos: [],
-};
-
-const store = createStore(firstReducer, initialState);
+const store = createStore(reducer, initialState);
 
 ReactDOM.render(
-  <App store={store} />,
+  <Provider store={store}>
+    <App store={store} />
+  </Provider>,
   document.getElementById('app'),
 );
-
-
-function firstReducer(state, action) {
-  const { todos, currentTodo } = state;
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        ...state,
-        todos: [
-          ...todos,
-          {
-            text: currentTodo,
-            id: Math.random(),
-          },
-        ],
-      };
-    case 'UPDATE_TODO':
-      return { ...state, currentTodo: action.todo };
-    default:
-      return state;
-  }
-}
