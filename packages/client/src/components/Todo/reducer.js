@@ -5,26 +5,27 @@ export const initialState = {
 
 export function reducer(state, action) {
   switch (action.type) {
-    case 'ADD_TODO':
-      return addTodo(state);
-    case 'UPDATE_TODO':
+    case 'addTodo':
+      return addTodo(state, action);
+    case 'updateCurrentTodo':
       return updateTodo(state, action);
-    case 'DELETE_TODO':
-      return deleteTodo(state, action);
+    // case 'DELETE_TODO':
+    //   return deleteTodo(state, action);
     default:
       return state;
   }
 }
 
-function addTodo(state) {
+function addTodo(state, action) {
+  const { val, key } = action;
   return {
     ...state,
     currentTodo: '',
     todos: [
       ...state.todos,
       {
-        text: state.currentTodo,
-        id: Math.random(),
+        text: val,
+        id: key,
       },
     ],
   };
@@ -37,9 +38,9 @@ function updateTodo(state, action) {
   };
 }
 
-function deleteTodo(state, action) {
-  return {
-    ...state,
-    todos: state.todos.filter((todo, index) => index !== action.index),
-  };
-}
+// function deleteTodo(state, action) {
+//   return {
+//     ...state,
+//     todos: state.todos.filter((todo, index) => index !== action.index),
+//   };
+// }

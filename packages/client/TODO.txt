@@ -2,16 +2,19 @@ add data persistence / firebase / server logic
 
 
 
-
-
-
 Next
-- setup basic server
+- receiving messages from socket
+- reading/writing firebase
+- add structure to components dir
 - Css modules
 - basic CRUD functionality
 - reselect/immutable/react-router/typescript
 
 
 Later
-- add thunk support
 - combine reducer/ add in intialState
+- errorHandling
+
+
+linting / babel
+- absolute imports

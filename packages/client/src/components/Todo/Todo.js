@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { deleteTodo } from './actionCreators';
+import { deleteTodoThunk } from './thunks';
 
 export default connect()(Todo);
 
 function Todo({ dispatch, text, index }) {
   const handleDeleteTodo = () => {
-    dispatch(deleteTodo(index));
+    dispatch(deleteTodoThunk(index));
   };
 
   return (
