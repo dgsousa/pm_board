@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { reducer, initialState } from '../components/Todo/reducer';
+import rootReducer from './rootReducer';
 import createIoRequest from './middleware/ioRequest';
 import createSocketMessageHandler from './middleware/socketMessageHandler';
 
@@ -15,8 +15,7 @@ const createStoreWithMiddlewareAndSocket = (socket) => {
     ),
   );
   return createStore(
-    reducer,
-    initialState,
+    rootReducer,
     storeEnhancer,
   );
 };

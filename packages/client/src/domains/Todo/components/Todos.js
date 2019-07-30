@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Todo from './Todo';
-import { addTodoThunk, updateCurrentTodoThunk } from './thunks';
+import { addTodoThunk, updateCurrentTodoThunk } from '../thunks';
+import todoSelector from '../selectors';
 
-function mapStateToProps({ todos, currentTodo }) {
+function mapStateToProps(state) {
+  const currentTodo = state.getIn(['todo', 'currentTodo']);
+  const todos = todoSelector(state);
   return {
     currentTodo,
     todos,
@@ -20,7 +22,7 @@ function Todos({ dispatch, todos, currentTodo }) {
   };
 
   const handleUpdateTodo = (e) => {
-    dispatch(updateCurrentTodoThunk(e.target.value));
+    dispatch(updateCurrentTodoThunk({ val: e.target.value }));
   };
 
   return (
@@ -38,11 +40,11 @@ function Todos({ dispatch, todos, currentTodo }) {
         { 'Click Here' }
       </button>
       {
-        todos.map((todo, index) => (
+        todos.map(({ key, val }) => (
           <Todo
-            key={todo.id}
-            text={todo.text}
-            index={index}
+            key={key}
+            text={val}
+            id={key}
           />
         ))
       }
@@ -52,8 +54,6 @@ function Todos({ dispatch, todos, currentTodo }) {
 
 Todos.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  todos: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape).isRequired,
   currentTodo: PropTypes.string.isRequired,
 };

@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { deleteTodoThunk } from './thunks';
+import { deleteTodoThunk } from '../thunks';
 
 export default connect()(Todo);
 
-function Todo({ dispatch, text, index }) {
+function Todo({ dispatch, text, id }) {
   const handleDeleteTodo = () => {
-    dispatch(deleteTodoThunk(index));
+    dispatch(deleteTodoThunk({ id }));
   };
 
   return (
@@ -27,5 +27,5 @@ function Todo({ dispatch, text, index }) {
 Todo.propTypes = {
   dispatch: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };

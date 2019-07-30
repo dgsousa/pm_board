@@ -3,17 +3,17 @@ add data persistence / firebase / server logic
 
 
 Next
-- receiving messages from socket
-- reading/writing firebase
+- immutable
+- combine reducer/ add in intialState
 - add structure to components dir
 - Css modules
 - basic CRUD functionality
-- reselect/immutable/react-router/typescript
 
 
 Later
-- combine reducer/ add in intialState
+- reselect/react-router/typescript
 - errorHandling
+- get storybook set up
 
 
 linting / babel

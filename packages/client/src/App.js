@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Todos from './components/Todo/Todos';
+import Todos from './domains/Todo/components/Todos';
 
 const App = () => (
   <Todos />
