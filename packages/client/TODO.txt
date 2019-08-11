@@ -3,18 +3,22 @@ add data persistence / firebase / server logic
 
 
 Next
-- immutable
-- combine reducer/ add in intialState
-- add structure to components dir
+- jest testing
 - Css modules
 - basic CRUD functionality
 
 
+Lint-Todo
+- Lose no js extension rule
+- absolute imports
+
+Test Todo
+- test all non-jsx files
+- setup/test server
+- implement enzyme or react-test-utils + istanbul?
+
+
 Later
-- reselect/react-router/typescript
+- react-router/typescript
 - errorHandling
 - get storybook set up
-
-
-linting / babel
-- absolute imports

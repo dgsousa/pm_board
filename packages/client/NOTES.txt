@@ -1,0 +1,19 @@
+
+
+To get Jest up and running
+
+- installed jest
+- ran './node_modules/.bin/jest --init
+    - generated jest.config.js file
+        options:
+            - env -> jsDom
+            - add coverage reports -> yes
+            - clear mock calls -> yes
+- added a test file
+- added "test": "jest" to package.json
+- installed babel-jest, @babel/preset-env
+- added @babel/preset-env to .babelrc
+- added "jest": true to .eslintrc.json envs (makes jest globals like expect available)?
+- Note: jest transpiles code w/ babel prior to running tests and uses node to run
+
+

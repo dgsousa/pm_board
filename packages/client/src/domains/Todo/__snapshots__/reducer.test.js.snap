@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addTodo 1`] = `
+Object {
+  "currentTodo": "",
+  "todos": Object {
+    "123": "Run the test",
+  },
+}
+`;
+
+exports[`deleteTodo 1`] = `
+Object {
+  "currentTodo": "",
+  "todos": Object {},
+}
+`;
+
+exports[`updateTodo 1`] = `
+Object {
+  "currentTodo": "updated Todo",
+  "todos": Object {},
+}
+`;

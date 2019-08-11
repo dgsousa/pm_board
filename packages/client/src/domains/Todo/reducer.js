@@ -18,20 +18,17 @@ export default function todoReducer(state = initialState, action) {
   }
 }
 
-function addTodo(state, action) {
-  const { key, val } = action;
-  const todos = state.get('todos');
-  const updatedTodos = todos.set(`${key}`, val);
+export function addTodo(state, { key, val }) {
   return state
     .set('currentTodo', '')
-    .set('todos', updatedTodos);
+    .setIn(['todos', key], val);
 }
 
-function updateTodo(state, { todo }) {
+export function updateTodo(state, { todo }) {
   return state.set('currentTodo', todo);
 }
 
-function deleteTodo(state, action) {
+export function deleteTodo(state, action) {
   const todos = state.get('todos');
   const updatedTodos = todos.filter((val, key) => key !== action.key);
   return state.set('todos', updatedTodos);
