@@ -1,8 +1,10 @@
 add data persistence / firebase / server logic
 
 
-
 Next
+- wrap thunks return function in named function
+- dockerize
+- switch to mongoDB
 - jest testing
 - Css modules
 - basic CRUD functionality
@@ -22,3 +24,10 @@ Later
 - react-router/typescript
 - errorHandling
 - get storybook set up
+
+
+Docker Todo
+- dockerize client
+- publish images
+- docker-composerize
+- link local repos
