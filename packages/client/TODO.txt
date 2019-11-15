@@ -27,7 +27,5 @@ Later
 
 
 Docker Todo
-- dockerize client
-- publish images
-- docker-composerize
-- link local repos
+- set up nginx reverse proxy
+- make docker-compose have a static IP?

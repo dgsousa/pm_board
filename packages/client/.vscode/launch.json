@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Attach to chrome",
+      "url": "http://localhost:3001",
+      "webRoot": "${workspaceFolder}/build",
+      "trace": "verbose"
+    }
+  ]
+}
