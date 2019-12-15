@@ -14,6 +14,7 @@ Lint-Todo
 - Lose no js extension rule
 - absolute imports
 
+
 Test Todo
 - test all non-jsx files
 - setup/test server
@@ -27,5 +28,7 @@ Later
 
 
 Docker Todo
-- set up nginx reverse proxy
+- get domain
+- letsEncrypt ?
 - make docker-compose have a static IP?
+- docker-gen

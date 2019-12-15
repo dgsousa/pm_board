@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Attach to chrome",
       "url": "http://localhost:3001",
-      "webRoot": "${workspaceFolder}/build",
+      "webRoot": "${workspaceFolder}",
       "trace": "verbose"
     }
   ]
