@@ -1,10 +1,12 @@
 #!/bin/bash
 
-tar czf pm_tool.tar.gz build
+tar czf pm_board.tar.gz build
 
-scp pm_tool.tar.gz danielmooncloud.com:~
-rm pm_tool.tar.gz
+scp pm_board.tar.gz danielmooncloud.com:~
+rm pm_board.tar.gz
 
 ssh danielmooncloud.com << 'ENDSSH'
-tar xf pm_tool.tar.gz -C /home/dsousa/pm_tool
+rm -rf /home/dsousa/pm_board/
+mkdir /home/dsousa/pm_board/
+tar xf pm_board.tar.gz -C /home/dsousa/pm_board
 ENDSSH
