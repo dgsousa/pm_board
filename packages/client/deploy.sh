@@ -1,6 +1,7 @@
 #!/bin/bash
 
-scp pm_board.tar.gz danielmooncloud.com:~
+tar czf pm_board.tar.gz build
+scp pm_board.tar.gz dsousa@danielmooncloud.com:~
 rm pm_board.tar.gz
 
 ssh dsousa@danielmooncloud.com << 'ENDSSH'
