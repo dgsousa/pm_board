@@ -1,5 +1,6 @@
 node_modules/
 build/
-./TODO.txt
-./NOTES.txt
-./deploy.sh
+TODO.txt
+NOTES.txt
+deploy.sh
+.vscode
