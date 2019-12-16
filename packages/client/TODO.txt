@@ -32,3 +32,8 @@ Docker Todo
 - letsEncrypt ?
 - make docker-compose have a static IP?
 - docker-gen
+
+
+CI/CD
+- protect master branches/ github config
+- configure jenkins to list for changes to master and deploy for client & server
