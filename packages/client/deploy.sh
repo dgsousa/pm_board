@@ -4,7 +4,7 @@ echo 'compressing build into tar file...'
 tar czf pm_board.tar.gz build
 
 echo 'copying tarball into remote server...'
-scp pm_board.tar.gz dsousa@danielmooncloud.com:~
+scp -v pm_board.tar.gz dsousa@danielmooncloud.com:~
 
 echo 'removing tarball'
 rm pm_board.tar.gz
