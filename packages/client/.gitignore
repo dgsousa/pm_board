@@ -1,4 +1,5 @@
 node_modules/
 build/
-TODO.txt
-deploy.sh
+./TODO.txt
+./NOTES.txt
+./deploy.sh
