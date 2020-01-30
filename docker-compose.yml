@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx-proxy:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+     - ./nginx-proxy/default.conf:/etc/nginx/conf.d/default.conf:cached
+    restart: always
+    depends_on:
+      - client_app
+  client_app:
+    hostname: client_app
+    image: danielmooncloud/client:2.0
+    volumes:
+      - ./client:/src:cached
+  server_app:
+    hostname: server_app
+    image: danielmooncloud/server:2.0
+    volumes:
+      - ./server:/src:cached

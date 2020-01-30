@@ -1,0 +1,7 @@
+node_modules/
+build/
+.editorconfig
+build.sh
+deploy.sh
+Dockerfile
+Jenkinsfile

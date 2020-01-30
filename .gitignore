@@ -1,0 +1,4 @@
+client/node_modules/
+client/public/build/
+server/node_modules/
+server/service_key.json
