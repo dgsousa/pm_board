@@ -11,7 +11,11 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app.js"
+    "start": "nodemon ./src/app.js",
+    "docker:build": "docker build -t danielmooncloud/server:$DOCKER_TAG .",
+    "docker:push": "docker push danielmooncloud/server:$DOCKER_TAG",
+    "docker:tag-dev": "docker tag danielmooncloud/server:$DOCKER_TAG danielmooncloud/server:dev",
+    "docker:push-dev": "docker push danielmooncloud/server:dev"
   },
   "keywords": [],
   "author": "",

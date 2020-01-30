@@ -7,7 +7,11 @@
     "test": "jest",
     "build": "webpack",
     "start": "webpack-dev-server --content-base public/ --host 0.0.0.0 --port 3001 --disable-host-check",
-    "build-jenkins": "./build.sh"
+    "build-jenkins": "./build.sh",
+    "docker:build": "docker build -t danielmooncloud/client:$DOCKER_TAG .",
+    "docker:push": "docker push danielmooncloud/client:$DOCKER_TAG",
+    "docker:tag-dev": "docker tag danielmooncloud/client:$DOCKER_TAG danielmooncloud/client:dev",
+    "docker:push-dev": "docker push danielmooncloud/client:dev"
   },
   "keywords": [],
   "author": "",
