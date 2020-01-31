@@ -47,7 +47,7 @@ pipeline {
 		cleanup {
 			script {
 				sh """
-					docker system prune -f -all --volumes
+					docker system prune -f -a
 				"""
 			}
 		}
