@@ -11,11 +11,12 @@ services:
       - client_app
   client_app:
     hostname: client_app
-    image: danielmooncloud/client:2.0
+    image: danielmooncloud/client:dev
     volumes:
-      - ./client:/src:cached
+      - ./client:/client:cached
   server_app:
     hostname: server_app
-    image: danielmooncloud/server:2.0
+    image: danielmooncloud/server:dev
     volumes:
-      - ./server:/src:cached
+      - ./server:/server:cached
+      - ./service_key.json:/server/src/service_key.json

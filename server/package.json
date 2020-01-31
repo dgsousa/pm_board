@@ -2,7 +2,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "firebase-admin": "^8.8.0",
-    "nodemon": "^1.19.1",
     "socket.io": "^2.2.0"
   },
   "name": "server",
@@ -11,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
     "docker:build": "docker build -t danielmooncloud/server:$DOCKER_TAG .",
     "docker:push": "docker push danielmooncloud/server:$DOCKER_TAG",
     "docker:tag-dev": "docker tag danielmooncloud/server:$DOCKER_TAG danielmooncloud/server:dev",
