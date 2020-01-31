@@ -1,9 +1,11 @@
 pipeline {
-	agent any
+	agent { label 'docker-node'}
 	stages {
 		stage('docker login') {
 			steps{
-				sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+				sh """
+					docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+				"""
 			}
 		}
 		stage('apps') {
