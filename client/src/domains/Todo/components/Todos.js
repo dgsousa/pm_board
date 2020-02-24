@@ -5,6 +5,8 @@ import Todo from './Todo';
 import { addTodoThunk, updateCurrentTodoThunk } from '../thunks';
 import todoSelector from '../selectors';
 
+const DATA_ID = 'todoInput';
+
 function mapStateToProps(state) {
   const currentTodo = state.getIn(['todo', 'currentTodo']);
   const todos = todoSelector(state);
@@ -30,6 +32,7 @@ function Todos({ dispatch, todos, currentTodo }) {
       <div>make a Todo Item!</div>
       <input
         type="text"
+        data-id={DATA_ID}
         onChange={handleUpdateTodo}
         value={currentTodo}
       />

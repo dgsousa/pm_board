@@ -1,4 +1,4 @@
-client/node_modules/
-client/public/build/
-server/node_modules/
+node_modules
 service_key.json
+build
+test
