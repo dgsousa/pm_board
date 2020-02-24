@@ -19,4 +19,4 @@ services:
     image: danielmooncloud/server:dev
     volumes:
       - ./server:/server:cached
-      - ./server/src/service_key.json:service_key.json
+      - ./service_key.json:./service_key.json
