@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd client/
-yarn && yarn run start
+yarn && yarn run build && yarn run start

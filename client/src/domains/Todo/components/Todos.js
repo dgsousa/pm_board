@@ -29,7 +29,7 @@ function Todos({ dispatch, todos, currentTodo }) {
 
   return (
     <Fragment>
-      <div>make a Todo Item!</div>
+      <div>make a Todo Item!!</div>
       <input
         type="text"
         data-id={DATA_ID}

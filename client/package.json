@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
+    "build:watch": "webpack --watch",
     "start": "webpack-dev-server --content-base public/ --host 0.0.0.0 --port 3001 --disable-host-check",
     "build-jenkins": "./build.sh",
     "docker:build": "docker build -t danielmooncloud/client:$DOCKER_TAG .",
