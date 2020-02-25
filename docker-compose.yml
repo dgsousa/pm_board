@@ -6,6 +6,7 @@ services:
       - "80:80"
     volumes:
      - ./nginx-proxy/default.conf:/etc/nginx/conf.d/default.conf:cached
+     - ./nginx-proxy/default.conf:/default.conf:cached
     restart: always
     depends_on:
       - client_app
@@ -19,4 +20,7 @@ services:
     image: danielmooncloud/server:dev
     volumes:
       - ./server:/server:cached
-      - ./service_key.json:./service_key.json
+    environment:
+      - SERVICE_KEY_PATH=./service_key.json
+
+      
