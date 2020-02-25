@@ -20,7 +20,6 @@ services:
     image: danielmooncloud/server:dev
     volumes:
       - ./server:/server:cached
-    environment:
-      - SERVICE_KEY_PATH=./service_key.json
+      - ./service_key.json:/server/src/service_key.json:cached
 
       
