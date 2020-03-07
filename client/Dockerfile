@@ -1,4 +1,4 @@
-FROM node:8.16.0
+FROM node:12.13.1
 RUN npm install -g yarn
 
 WORKDIR /

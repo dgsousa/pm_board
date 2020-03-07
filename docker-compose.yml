@@ -11,15 +11,18 @@ services:
     depends_on:
       - client_app
   client_app:
+    build:
+      context: ./client
     hostname: client_app
-    image: danielmooncloud/client:dev
     volumes:
       - ./client:/client:cached
   server_app:
+    build:
+      context: ./server
     hostname: server_app
-    image: danielmooncloud/server:dev
     volumes:
       - ./server:/server:cached
-      - ./service_key.json:/server/src/service_key.json:cached
-
+      - ./service_key.json:/service_key.json
+    environment:
+     - SERVICE_KEY=../../service_key.json
       

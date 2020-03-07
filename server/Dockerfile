@@ -3,4 +3,5 @@ RUN npm install -g yarn
 
 WORKDIR /
 COPY . ./server
+
 CMD [ "/bin/bash", "./server/init.sh" ]
