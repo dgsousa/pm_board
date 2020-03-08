@@ -1,4 +1,5 @@
 #!/bin/bash
 
-yarn
+ls -alt
+yarn install --pure-lockfile
 yarn build

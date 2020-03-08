@@ -41,7 +41,7 @@ function Todos({ dispatch, todos, currentTodo }) {
         data-id={`${DATA_ID}Button`}
         onClick={handleAddTodo}
       >
-        { 'Click Here' }
+        Click Here
       </button>
       {
         todos.map(({ key, val }) => (

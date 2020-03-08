@@ -18,7 +18,7 @@ function Todo({ dispatch, text, id }) {
         type="button"
         onClick={handleDeleteTodo}
       >
-        {'X'}
+        X
       </button>
     </div>
   );
