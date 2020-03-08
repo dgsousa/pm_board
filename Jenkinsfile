@@ -8,7 +8,7 @@ pipeline {
 						stage('Install') {
 							steps {
 								sh """
-									ls -alt
+									rm -rf node_modules
 									cd client
 									yarn install --pure-lockfile
 								"""
