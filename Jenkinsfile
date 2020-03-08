@@ -62,12 +62,7 @@ pipeline {
 			echo 'pipeline succeeded!'
 		}
 		cleanup {
-			sh """
-				cd ../
-				ls -alt
-				rm -rf pm_board_repo_pipeline
-				rm -rf pm_board_repo_pipeline@tmp
-			"""
+			deleteDir()
 		}
 		failure {
 			echo 'pipeline failed!'
