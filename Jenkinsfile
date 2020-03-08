@@ -61,7 +61,7 @@ pipeline {
 		success {
 			echo 'pipeline succeeded!'
 		}
-		cleanWorkspace {
+		cleanup {
 			sh """
 				rm -rf .
 			"""
