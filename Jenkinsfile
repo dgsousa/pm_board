@@ -63,8 +63,10 @@ pipeline {
 		}
 		cleanup {
 			sh """
+				cd ../
+				rm -rf pm_board_repo_pipeline
+				rm -rf pm_board_repo_pipeline@tmp
 				ls -alt
-				rm -rf node_modules
 			"""
 		}
 		failure {
