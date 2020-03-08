@@ -8,23 +8,27 @@ pipeline {
 			"""
 		}
 		stage('Test') {
-			stage('client:test') {
-				steps {
-					sh """
-						cd client
-						yarn lint
-						yarn test
-					""" 
+			parallel {
+				stage('client:test') {
+					steps {
+						sh """
+							cd client
+							yarn lint
+							yarn test
+						""" 
+					}
 				}
 			}
 		}
 		stage('Build') {
-			stage('client:build') {
-				steps {
-					sh """
-						cd client
-						yarn build
-					""" 
+			parallel {
+				stage('client:build') {
+					steps {
+						sh """
+							cd client
+							yarn build
+						""" 
+					}
 				}
 			}
 		}
