@@ -22,7 +22,7 @@ pipeline {
 						}
 						stage('Build') { 
 							steps {
-								ssh """
+								sh """
 									cd client
 									yarn build
 								""" 
