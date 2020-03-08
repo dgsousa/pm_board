@@ -1,16 +1,11 @@
 pipeline {
 	agent { label 'docker-node'}
 	stages {
-		stage('apps') {	
-				stages {
-					stage('Deploy') { 
-						steps {
-							sh 'cd server'
-							sh 'chmod 700 deploy.sh'
-							sh './deploy.sh' 
-						}
-					}
-				}
+		stage('apps') {
+			steps {
+				sh 'cd server'
+				sh 'chmod 700 deploy.sh'
+				sh './deploy.sh' 
 			}
 		}
 	}
