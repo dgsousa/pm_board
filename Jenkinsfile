@@ -2,12 +2,42 @@ pipeline {
 	agent { label 'docker-node'}
 	stages {
 		stage('apps') {
-			steps {
-				sh  """
-					cd server
-					chmod 700 deploy.sh
-					./deploy.sh
-				""" 
+			parallel {
+				stage('server') {
+					stages {
+						stage('Deploy') { 
+							steps {
+								sh """
+									cd server'
+									chmod 700 deploy.sh
+									./deploy.sh
+								""" 
+							}
+						}
+					}
+				}
+				stage('client') {
+					stages {
+						stage('Build') { 
+							steps {
+								sh """
+									cd client
+									chmod 700 build.sh
+									./build.sh
+								""" 
+							}
+						}
+						stage('Deploy') { 
+							steps {
+								sh """
+									cd client
+									chmod 700 deploy.sh
+									./deploy.sh
+								"""
+							}
+						}
+					}
+				}
 			}
 		}
 	}
