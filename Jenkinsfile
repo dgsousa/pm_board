@@ -63,6 +63,7 @@ pipeline {
 		}
 		cleanup {
 			sh """
+				ls -alt
 				rm -rf .
 			"""
 		}
