@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd server/
-yarn && yarn run start
+yarn install --frozen-lockfile && yarn run start

@@ -11,9 +11,7 @@
   "scripts": {
     "start": "node ./src/app.js",
     "docker:build": "docker build -t danielmooncloud/server:$DOCKER_TAG .",
-    "docker:push": "docker push danielmooncloud/server:$DOCKER_TAG",
-    "docker:tag-dev": "docker tag danielmooncloud/server:$DOCKER_TAG danielmooncloud/server:dev",
-    "docker:push-dev": "docker push danielmooncloud/server:dev"
+    "docker:push": "docker push danielmooncloud/server:$DOCKER_TAG"
   },
   "keywords": [],
   "author": "",

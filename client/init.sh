@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd client/
-yarn && yarn run build && yarn run start
+yarn install --frozen-lockfile && yarn run build && yarn run start

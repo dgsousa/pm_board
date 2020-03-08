@@ -17,8 +17,6 @@ pipeline {
 							export DOCKER_TAG=$GIT_COMMIT
 							yarn run docker:build
 							yarn run docker:push
-							yarn run docker:tag-dev
-							yarn run docker:push-dev
 						"""
 					}
 				}
@@ -29,8 +27,6 @@ pipeline {
 							export DOCKER_TAG=$GIT_COMMIT
 							yarn run docker:build
 							yarn run docker:push
-							yarn run docker:tag-dev
-							yarn run docker:push-dev
 						"""
 					}
 				}
