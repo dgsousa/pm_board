@@ -3,10 +3,12 @@ pipeline {
 	stages {
 		stage('apps') {
 			steps {
-				sh 'cd server'
-				sh 'ls -alt'
-				sh 'chmod 700 deploy.sh'
-				sh './deploy.sh' 
+				sh  """
+					cd server
+					sh 'ls -alt
+					sh 'chmod 700 deploy.sh
+					sh './deploy.sh
+				""" 
 			}
 		}
 	}
