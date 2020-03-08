@@ -35,12 +35,5 @@ pipeline {
 		failure {
 			echo 'pipeline failed!'
 		}
-		cleanup {
-			script {
-				sh """
-					docker system prune -f -a
-				"""
-			}
-		}
 	}
 }
