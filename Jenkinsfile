@@ -43,8 +43,10 @@ pipeline {
 					stages {
 						stage('Deploy') { 
 							steps {
-								sh 'chmod 700 deploy.sh'
-								sh './deploy.sh' 
+								sh """
+									chmod 700 deploy.sh
+									./deploy.sh
+								"""
 							}
 						}
 					}
