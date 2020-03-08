@@ -9,7 +9,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "node ./src/app.js",
+    "start": "SERVICE_KEY=$SERVICE_KEY node ./src/app.js",
     "docker:build": "docker build -t danielmooncloud/server:$DOCKER_TAG .",
     "docker:push": "docker push danielmooncloud/server:$DOCKER_TAG"
   },

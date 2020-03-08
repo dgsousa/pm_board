@@ -1,56 +1,53 @@
+
 pipeline {
 	agent { label 'docker-node'}
 	stages {
 		stage('apps') {
-			parallel {
-				stage('client') {
-					stages {
-						stage('Install') {
-							steps {
-								sh """
-									rm -rf node_modules
-									cd client
-									yarn install --pure-lockfile
-								"""
-							}
-						}
-						stage('Test') {
-							steps {
-								sh """
-									cd client
-									yarn test
-								""" 
-							}
-						}
-						stage('Build') { 
-							steps {
-								sh """
-									cd client
-									yarn build
-								""" 
-							}
-						}
-						stage('Deploy') { 
-							steps {
-								sh """
-									cd client
-									chmod 700 deploy.sh
-									./deploy.sh
-								"""
-							}
-						}
+			stage('Install Tools') {
+				sh """
+					yarn install --pure-lockfile
+				"""
+			}
+			stage('Test') {
+				stage('client:test') {
+					steps {
+						sh """
+							cd client
+							yarn lint
+							yarn test
+						""" 
 					}
 				}
-				stage('server') {
-					stages {
-						stage('Deploy') { 
-							steps {
-								sh """
-									cd server
-									chmod 700 deploy.sh
-									./deploy.sh
-								"""
-							}
+			}
+			stage('Build') {
+				stage('client:build')
+					steps {
+						sh """
+							cd client
+							yarn build
+						""" 
+					}
+				}
+			}
+			stage('Deploy') {
+				when { branch 'master' }
+				parallel {
+					stage('client:deploy') {
+						steps {
+							sh """
+								cd client
+								chmod 700 deploy.sh
+								./deploy.sh
+							"""
+						}
+					}
+					stage('server:deploy') {
+						steps {
+							sh """
+								cd server
+								chmod 700 deploy.sh
+								./deploy.sh
+							"""
 						}
 					}
 				}

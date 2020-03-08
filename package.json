@@ -5,8 +5,7 @@
     "lerna": "^3.20.2"
   },
   "workspaces": [
-    "client/",
-    "server/",
-    "test/"
+    "client",
+    "server"
   ]
 }
