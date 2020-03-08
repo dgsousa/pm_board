@@ -3,9 +3,11 @@ pipeline {
 	agent { label 'docker-node'}
 	stages {
 		stage('Install Tools') {
-			sh """
-				yarn install --pure-lockfile
-			"""
+			steps {
+				sh """
+					yarn install --pure-lockfile
+				"""
+			}
 		}
 		stage('Test') {
 			parallel {
