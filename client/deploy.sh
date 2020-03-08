@@ -1,5 +1,5 @@
 #!/bin/bash
-echo '$USER'
+echo "$USER"
 
 echo 'compressing build into tar file...'
 tar czf pm_board.tar.gz public
