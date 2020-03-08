@@ -65,7 +65,7 @@ pipeline {
 			sh """
 				cd ../
 				ls -alt
-				rm -rf workspace
+				rm -rf .
 			"""
 		}
 		failure {
