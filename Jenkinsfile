@@ -3,19 +3,6 @@ pipeline {
 	stages {
 		stage('apps') {
 			parallel {
-				stage('server') {
-					stages {
-						stage('Deploy') { 
-							steps {
-								sh """
-									cd server'
-									chmod 700 deploy.sh
-									./deploy.sh
-								""" 
-							}
-						}
-					}
-				}
 				stage('client') {
 					stages {
 						stage('Build') { 
