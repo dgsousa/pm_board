@@ -7,7 +7,7 @@ pipeline {
 					stages {
 						stage('Deploy') { 
 							steps {
-								sh 'cd ./server'
+								sh 'cd server'
 								sh 'chmod 700 deploy.sh'
 								sh './deploy.sh' 
 							}
@@ -18,14 +18,14 @@ pipeline {
 					stages {
 						stage('Build') { 
 							steps {
-								sh 'cd ./client'
+								sh 'cd client'
 								sh 'chmod 700 build.sh'
 								sh './build.sh' 
 							}
 						}
 						stage('Deploy') { 
 							steps {
-								sh 'cd ./client'
+								sh 'cd client'
 								sh 'chmod 700 deploy.sh'
 								sh './deploy.sh' 
 							}
