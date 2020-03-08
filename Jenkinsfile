@@ -63,9 +63,8 @@ pipeline {
 		}
 		cleanup {
 			sh """
-				cd ../
 				ls -alt
-				rm -rf .
+				rm -rf node_modules
 			"""
 		}
 		failure {
