@@ -12,7 +12,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: '/node_modules/',
-        loaders: ['babel-loader', 'eslint-loader'],
+        loaders: ['babel-loader'],
       },
     ],
   },
