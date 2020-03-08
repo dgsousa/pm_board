@@ -5,9 +5,8 @@ pipeline {
 			steps {
 				sh  """
 					cd server
-					sh 'ls -alt
-					sh 'chmod 700 deploy.sh
-					sh './deploy.sh
+					chmod 700 deploy.sh
+					./deploy.sh
 				""" 
 			}
 		}
