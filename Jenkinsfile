@@ -61,6 +61,11 @@ pipeline {
 		success {
 			echo 'pipeline succeeded!'
 		}
+		cleanWorkspace {
+			sh """
+				rm -rf .
+			"""
+		}
 		failure {
 			echo 'pipeline failed!'
 		}
