@@ -44,6 +44,7 @@ pipeline {
 						stage('Deploy') { 
 							steps {
 								sh """
+									cd server
 									chmod 700 deploy.sh
 									./deploy.sh
 								"""
