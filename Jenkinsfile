@@ -1,33 +1,32 @@
 pipeline {
 	agent { label 'docker-node'}
 	stages {
-		stage('docker login') {
-			steps{
-				sh """
-					docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-				"""
-			}
-		}
 		stage('apps') {
 			parallel {
 				stage('server') {
-					steps {
-						sh """
-							cd server
-							export DOCKER_TAG=$GIT_COMMIT
-							yarn run docker:build
-							yarn run docker:push
-						"""
+					stages {
+						stage('Deploy') { 
+							steps {
+								sh 'chmod 700 deploy.sh'
+								sh './deploy.sh' 
+							}
+						}
 					}
 				}
 				stage('client') {
-					steps {
-						sh """
-							cd client
-							export DOCKER_TAG=$GIT_COMMIT
-							yarn run docker:build
-							yarn run docker:push
-						"""
+					stages {
+						stage('Build') { 
+							steps {
+								sh 'chmod 700 build.sh'
+								sh './build.sh' 
+							}
+						}
+						stage('Deploy') { 
+							steps {
+								sh 'chmod 700 deploy.sh'
+								sh './deploy.sh' 
+							}
+						}
 					}
 				}
 			}
