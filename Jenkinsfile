@@ -20,7 +20,7 @@ pipeline {
 				}
 			}
 			stage('Build') {
-				stage('client:build')
+				stage('client:build') {
 					steps {
 						sh """
 							cd client
