@@ -83,7 +83,6 @@ pipeline {
 			setBuildStatus("client:test", "SUCCESS");
 			setBuildStatus("client:build", "SUCCESS");
 			setBuildStatus("client:deploy", "SUCCESS");
-			setBuildStatus("server:deploy", "SUCCESS");
 		}
 		cleanup {
 			deleteDir()
