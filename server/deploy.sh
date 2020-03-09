@@ -18,5 +18,5 @@ tar xf pm_board_server.tar.gz -C pm_board_server
 cd pm_board_server
 yarn install
 cd ../
-pm2 start ecosystem.config.js
+
 ENDSSH
