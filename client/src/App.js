@@ -6,5 +6,4 @@ const App = () => (
   <Todos />
 );
 
-
 export default App;
