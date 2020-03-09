@@ -8,35 +8,26 @@ void setBuildStatus(String message, String state) {
   ]);
 }
 
-def githubScript(script, stageName) {
-	try {
-		sh script
-		setBuildStatus(stageName, "SUCCESS")
-	} catch (err) {
-		setBuildStatus(stageName, "FAILURE")
-	}
-}
-
 
 pipeline {
 	agent { label 'docker-node'}
 	stages {
 		stage('Install Tools') {
 			steps {
-				githubScript("""
+				sh """
 					yarn install --pure-lockfile
-				""", "install tools")
+				"""
 			}
 		}
 		stage('Test') {
 			parallel {
 				stage('client:test') {
 					steps {
-						githubScript("""
+						sh """
 							cd client
 							yarn lint
 							yarn test
-						""", "client:test") 
+						""" 
 					}
 				}
 			}
@@ -45,10 +36,10 @@ pipeline {
 			parallel {
 				stage('client:build') {
 					steps {
-						githubScript("""
+						sh """
 							cd client
 							yarn build
-						""", "client:build") 
+						""" 
 					}
 				}
 			}
@@ -57,20 +48,20 @@ pipeline {
 			parallel {
 				stage('client:deploy') {
 					steps {
-						githubScript("""
+						sh """
 							cd client
 							chmod 700 deploy.sh
 							./deploy.sh
-						""", "client:deploy")
+						"""
 					}
 				}
 				stage('server:deploy') {
 					steps {
-						githubScript("""
+						sh """
 							cd server
 							chmod 700 deploy.sh
 							./deploy.sh
-						""", "server:deploy")
+						"""
 					}
 				}
 			}
@@ -79,10 +70,6 @@ pipeline {
 	post {
 		success {
 			setBuildStatus("Build succeeded", "SUCCESS");
-			setBuildStatus("install tools", "SUCCESS");
-			setBuildStatus("client:test", "SUCCESS");
-			setBuildStatus("client:build", "SUCCESS");
-			setBuildStatus("client:deploy", "SUCCESS");
 		}
 		cleanup {
 			deleteDir()
