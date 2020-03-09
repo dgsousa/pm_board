@@ -6,4 +6,6 @@ const App = () => (
   <Todos />
 );
 
+console.log('test');
+
 export default App;
