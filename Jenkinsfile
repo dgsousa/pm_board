@@ -9,7 +9,7 @@ void setBuildStatus(String message, String state) {
 }
 
 pipeline {
-	agent { label 'docker-node'}
+	agent { label 'node-1'}
 	stages {
 		stage('Install Tools') {
 			steps {
