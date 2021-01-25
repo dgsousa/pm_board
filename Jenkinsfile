@@ -8,9 +8,8 @@ void setBuildStatus(String message, String state) {
   ]);
 }
 
-
 pipeline {
-	agent { label 'docker-node'}
+	agent { label 'node-1'}
 	stages {
 		stage('Install Tools') {
 			steps {
@@ -33,7 +32,6 @@ pipeline {
 			}
 		}
 		stage('Build') {
-			when { branch 'master' }
 			parallel {
 				stage('client:build') {
 					steps {
@@ -46,7 +44,6 @@ pipeline {
 			}
 		}
 		stage('Deploy') {
-			when { branch 'master' }
 			parallel {
 				stage('client:deploy') {
 					steps {
